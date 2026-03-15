@@ -19,6 +19,44 @@ function setInterpolationImage(i) {
   $('#interpolation-image-wrapper').empty().append(image);
 }
 
+function initUseCaseCarousel() {
+  var carousel = document.querySelector('[data-carousel]');
+  if (!carousel) {
+    return;
+  }
+
+  var slides = Array.prototype.slice.call(carousel.querySelectorAll('[data-slide]'));
+  var prevButton = carousel.querySelector('[data-carousel-prev]');
+  var nextButton = carousel.querySelector('[data-carousel-next]');
+  var status = carousel.querySelector('[data-carousel-status]');
+  var currentIndex = 0;
+
+  function render() {
+    slides.forEach(function(slide, index) {
+      slide.classList.toggle('is-active', index === currentIndex);
+    });
+    if (status) {
+      status.textContent = (currentIndex + 1) + ' / ' + slides.length;
+    }
+  }
+
+  if (prevButton) {
+    prevButton.addEventListener('click', function() {
+      currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+      render();
+    });
+  }
+
+  if (nextButton) {
+    nextButton.addEventListener('click', function() {
+      currentIndex = (currentIndex + 1) % slides.length;
+      render();
+    });
+  }
+
+  render();
+}
+
 
 $(document).ready(function() {
     // Check for click events on the navbar burger icon
@@ -74,5 +112,6 @@ $(document).ready(function() {
     $('#interpolation-slider').prop('max', NUM_INTERP_FRAMES - 1);
 
     bulmaSlider.attach();
+    initUseCaseCarousel();
 
 })

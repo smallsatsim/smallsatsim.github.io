@@ -155,3 +155,173 @@ body {
 #interpolation-image-wrapper img {
   border-radius: 5px;
 }
+
+.paper-hero-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0;
+  width: 100%;
+}
+
+.paper-hero-cell {
+  min-width: 0;
+}
+
+.paper-hero-panel {
+  margin: 0;
+  overflow: hidden;
+  height: 220px;
+}
+
+.paper-hero-panel img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.panel-gateway img {
+  object-position: center 65%;
+}
+
+.panel-sim img {
+  object-position: center center;
+}
+
+.panel-astrobee img {
+  object-position: center 50%;
+}
+
+.paper-hero-caption {
+  margin-top: 0.75rem;
+  font-size: 0.95rem;
+}
+
+.paper-table {
+  border-collapse: collapse;
+  margin: 1.25rem auto;
+  font-size: 0.88rem;
+  line-height: 1.35;
+}
+
+.paper-table caption {
+  caption-side: top;
+  text-align: center;
+  font-family: 'Noto Sans', sans-serif;
+  font-size: 0.98rem;
+  line-height: 1.35;
+  color: #222;
+  margin-bottom: 0.5rem;
+}
+
+.paper-table-label {
+  display: inline;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  margin-right: 0.35rem;
+}
+
+.paper-table th,
+.paper-table td {
+  border: 0;
+  padding: 0.45rem 0.85rem;
+  text-align: center;
+}
+
+.paper-table thead th {
+  font-weight: 600;
+  border-top: 2px solid #222;
+  border-bottom: 1.5px solid #555;
+}
+
+.paper-table tbody tr:last-child td {
+  border-bottom: 2px solid #222;
+}
+
+.paper-table tbody tr td:first-child,
+.paper-table thead tr th:first-child {
+  text-align: left;
+}
+
+.demo-use-cases .content img {
+  display: block;
+  width: 90% !important;
+  max-width: 90% !important;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.use-case-slide {
+  display: none;
+}
+
+.use-case-slide.is-active {
+  display: block;
+}
+
+.use-case-carousel {
+  min-height: 200px;
+}
+
+.use-case-carousel-shell {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  gap: 1rem;
+  align-items: start;
+}
+
+.use-case-arrow {
+  align-self: center;
+}
+
+.use-case-status-row {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.use-case-status {
+  min-width: 4rem;
+  text-align: center;
+  font-weight: 600;
+}
+
+@media screen and (max-width: 768px) {
+  .paper-hero-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .paper-hero-panel img {
+    height: 100%;
+  }
+
+  .paper-hero-panel {
+    height: 140px;
+  }
+
+  .demo-use-cases .content img {
+    max-width: 100%;
+    width: 100% !important;
+  }
+
+  .use-case-carousel-shell {
+    grid-template-columns: 1fr;
+  }
+
+  .use-case-arrow {
+    justify-self: center;
+  }
+
+  .paper-table {
+    font-size: 0.82rem;
+  }
+
+  .paper-table caption {
+    font-size: 0.9rem;
+  }
+
+  .paper-table th,
+  .paper-table td {
+    padding: 0.4rem 0.5rem;
+  }
+}
